@@ -13,6 +13,13 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct(){
+
+      $this->middleware('auth');
+
+     }
+
     public function index()
     {
         $posts = Post::all();
@@ -60,7 +67,11 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('posts.show', ['post' => $post]);
+        if ($post) {
+          return view('posts.show', ['post' => $post]);
+        }else{
+        return redirect('/posts');
+        }
     }
 
     /**

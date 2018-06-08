@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                  <p><div align="center"> <strong> All posts <strong></div></p>
+                  <center><h3>All Posts</h3></center>
                   <a href="{{route('posts.create')}}" class="btn btn-outline-primary">New Post!</a>
                 </div>
 
@@ -23,12 +23,7 @@
                         <h5 class="card-title">{{$post->name}}</h5>
                         <p class="card-text">{{$post->description}}</p>
                         <a href="{{route('posts.show', $post->id)}}" class="btn btn-outline-info">Post Info!</a>
-                        <a href="{{route('posts.edit', $post->id)}}" class="btn btn-outline-success">Edit Post!</a>
-                        <form method="post" action="{{route('posts.destroy', $post->id)}}">
-                          @method('DELETE')
-                          @csrf
-                          <input type="submit" value="Delete Post!" class="btn btn-outline-danger">
-                        </form>
+
 
                       </div>
                     </div>

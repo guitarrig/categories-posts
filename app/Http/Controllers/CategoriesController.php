@@ -14,6 +14,13 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct(){
+
+      $this->middleware('auth');
+
+     }
+
     public function index()
     {
         $categories = Category::all();
@@ -59,7 +66,12 @@ class CategoriesController extends Controller
     public function show($id)
     {
       $category = Category::where('id', $id)->first();
-      return view('posts.index', ['category' => $category]);
+      if ($category) {
+          return view('posts.index', ['category' => $category]);
+      }else{
+        return redirect('/categories');
+      }
+
     }
 
     /**

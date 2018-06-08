@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                  <p><div align="center"> <strong> {{$category->name}}<strong></div></p>
+                  <center><h3>{{$category->name}}</h3></center>
                     <div class="form-row">
                   <form action="{{route('categories.edit', $category->id)}}" method="post">
                     @method('GET')
