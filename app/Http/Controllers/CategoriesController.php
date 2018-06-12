@@ -17,7 +17,7 @@ class CategoriesController extends Controller
 
      public function __construct(){
 
-      $this->middleware('auth');
+      $this->middleware(['auth', 'web']);
 
      }
 
@@ -52,6 +52,7 @@ class CategoriesController extends Controller
 
       ];
       $this->validate($request, $rules);
+      $request->flash();
 
         Category::create(['name' => $request->name]);
         return redirect('/categories');
@@ -103,6 +104,7 @@ class CategoriesController extends Controller
         ];
 
         $this->validate($request, $rules);
+        $request->flash();
 
         $category = Category::where('id', $id)->first();
         $category->name = $request->name;

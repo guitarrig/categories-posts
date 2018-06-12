@@ -16,7 +16,7 @@ class PostsController extends Controller
 
      public function __construct(){
 
-      $this->middleware('auth');
+      $this->middleware(['auth', 'web']);
 
      }
 
@@ -50,6 +50,7 @@ class PostsController extends Controller
                   ];
 
         $this->validate($request, $rules);
+        $request->flash();
 
         Post::create(['name' => $request->name,
                       'description' => $request->description,
@@ -101,6 +102,7 @@ class PostsController extends Controller
                 ];
 
       $this->validate($request, $rules);
+      $request->flash();
 
         $post = Post::find($id);
         $post->name = $request->name;

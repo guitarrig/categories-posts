@@ -22,7 +22,7 @@
                     @csrf
                     <div class="form-group mx-sm-3 mb-2">
 
-                      <input type="text" class="form-control" name="name" id="name" placeholder="Put the name..." value="{{$category->name}}">
+                      <input type="text" class="form-control" name="name" id="name" placeholder="Put the name..." value="{{(old('name') != NULL) ? old('name') : $category->name }}">
                     </div>
                     <button type="submit" class="btn btn-outline-primary mb-2">Update!</button>
                   </form>

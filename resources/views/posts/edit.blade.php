@@ -22,11 +22,11 @@
                     @csrf
                     <div class="form-group mx-sm-3 mb-2">
                       <label>Name: </label>
-                      <input type="text" class="form-control" name="name"  value="{{$post->name}}"><br>
+                      <input type="text" class="form-control" name="name"  value="{{(old('name') != NULL)? old('name') : $post->name}}"><br>
                       <label>Description: </label>
-                      <input type="text" class="form-control" name="description"  value="{{$post->description}}"><br>
+                      <input type="text" class="form-control" name="description"  value="{{(old('description') != NULL)? old('description') : $post->description}}"><br>
                       <label>Category id: </label>
-                      <input type="number" class="form-control" name="category_id"  value="{{$post->category_id}}">
+                      <input type="number" class="form-control" name="category_id"  value="{{(old('category_id') != NULL)? old('category_id') : $post->category_id}}">
                     </div>
                     <button type="submit" class="btn btn-outline-primary mb-2">Update!</button>
                   </form>

@@ -22,12 +22,12 @@
                     @csrf
                     <div class="form-group mx-sm-3 mb-2">
 
-                      <input type="text" class="form-control" name="name"  placeholder="Put the name...">
-                      <input type="textarea" class="form-control" name="description"  placeholder="Put the description...">
+                      <input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Put the name...">
+                      <input type="textarea" class="form-control" name="description" value="{{old('description')}}"  placeholder="Put the description...">
                       @if(!$categoryId)
-                      <input type="number" class="form-control" name="category_id"  placeholder="Category id...">
+                      <input type="number" class="form-control" name="category_id" value="{{old('category_id')}}"  placeholder="Category id...">
                       @else
-                      <input type="number" class="form-control" name="category_id"  value="{{$categoryId}}">
+                      <input type="number" class="form-control" name="category_id"   value="{{$categoryId}}">
                       @endif
                     </div>
                     <button type="submit" class="btn btn-outline-success mb-2">Create!</button>
